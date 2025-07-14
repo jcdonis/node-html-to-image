@@ -72,7 +72,7 @@ app.post('/images', authenticateToken, async (req, res) => {
 app.use('/images', express.static('./images'));
 
 // Start the server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, 'localhost', () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
