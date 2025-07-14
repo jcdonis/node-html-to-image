@@ -10,6 +10,9 @@ const app = express();
 const API_TOKEN = process.env.API_TOKEN;
 const PORT = process.env.PORT || 3001;
 
+console.log('ENV PORT - ', process.env.PORT)
+console.log('ENV API_TOKEN - ', process.env.API_TOKEN)
+
 // Validate required environment variables
 if (!API_TOKEN) {
   console.error('FATAL: API_TOKEN is not defined in environment variables');
@@ -72,7 +75,7 @@ app.post('/images', authenticateToken, async (req, res) => {
 app.use('/images', express.static('./images'));
 
 // Start the server
-app.listen(PORT, 'localhost', () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
